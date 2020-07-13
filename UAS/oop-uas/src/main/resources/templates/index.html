@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+          integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <title>Aplikasi Pengelola Data Mahasiswa</title>
+</head>
+<body>
+<h1 class="text-center">Selamat Datang di Aplikasi Pengelola Data Mahasiswa</h1>
+<div class="container">
+<a href="/tambah" class="btn btn-primary mb-3">Tambah Data</a>
+
+<div th:switch="${data}">
+    <div>
+        <h2 th:case="null">Tidak ada data</h2>
+        <div th:case="*">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                <tr>
+                    <th class="text-center">Nim</th>
+                    <th class="text-center">Nama</th>
+                    <th class="text-center">Jurusan</th>
+                    <th class="text-center">Alamat</th>
+                    <th class="text-center">Opsi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="data : ${data}">
+                    <td class="text-left" th:text="${data.nim}"></td>
+                    <td class="text-left" th:text="${data.nama}"></td>
+                    <td class="text-left" th:text="${data.jurusan}"></td>
+                    <td class="text-left" th:text="${data.alamat}"></td>
+                    <td class="text-center">
+                        <a class="btn btn-success" th:href="@{/ubah/{nim}(nim=${data.nim})}">Edit</a> |
+                        <a class="btn btn-danger" onclick="return confirm('Apa anda yakin akan menghapus data ini?!');" th:href="@{/hapus/{nim}(nim=${data.nim})}" >Hapus</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Popper.js first, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+</body>
+</html>

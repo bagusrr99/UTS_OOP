@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+          integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <title>Form Ubah Data Mahasiswa</title>
+</head>
+<body>
+<div class="container">
+    <h3>Ubah Data Mahasiswa</h3>
+    <a class="btn btn-primary mb-3" href="/"><- Back to Home</a>
+    <div>
+        <form action="#" th:action="@{/simpan}" th:object="${data}" method="post">
+            <table>
+                <tr>
+                    <td>Nim</td>
+                    <td><input class="form-control" type="text" th:field="*{nim}" readonly id="nim" ></td>
+                </tr>
+                <tr>
+                    <td>Nama</td>
+                    <td><input class="form-control" type="text" th:field="*{nama}" id="nama"></td>
+                </tr>
+                <tr>
+                    <td>Jurusan</td>
+                    <td><input class="form-control" type="text" th:field="*{jurusan}" id="jurusan"></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td><input class="form-control" type="text" th:field="*{alamat}" id="alamat"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input class="btn btn-primary" type="submit" value="Simpan"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<!-- Popper.js first, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+</body>
+</html>
